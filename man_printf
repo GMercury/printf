@@ -1,0 +1,70 @@
+.TH man 3 "April 2022" "ALX" "_PRINTF"
+.SH NAME
+.B _printf
+- format and print data to stdout
+.SH SYNOPSIS
+.B #include \(dqmain.h\(dq
+.sp
+.B int _printf(const char *
+.I format
+.B , ...);
+.SH DESCRIPTION
+.B _printf
+writes output under the control of a format string that specifies how subsequent arguments are converted for output.
+.sp
+.B Return value
+.sp
+On success, _printf returns the number of characters printed. If
+.I format
+is NULL or if the functions encounters any errors, it returns -1.
+.sp
+.B Format of the format string
+.sp
+The format string is a character string composed of zero or more  directives: : ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments.
+.sp
+.B Conversion specifiers
+.sp
+These are the characters that specify the type of conversion to be applied.
+.sp
+.B i, d
+- The int argument is converted to signed decimal notation and printed
+.sp
+.B c
+- The int argument is converted to unsigned char and printed
+.sp
+.B s
+- Prints an entire
+.I string.
+.sp
+.B u
+- Prints an
+.I unsigned int.
+.sp
+.B x, X
+- Respecively print a number in lowercase and uppercase
+.I hexadecimal
+base.
+.sp
+.B o, b
+- Respectively print a number in
+.I octal
+and
+.I binary
+base.
+.sp
+.B %
+- Acts like an escape for the character %. To print \(dq%\(dq, the format string should contain \(dq%%\(dq.
+.sp
+.B r, R
+- Respectively print a string in reverse and in ROT13 encryption.
+.sp
+.B S
+- Prints a string, but non-printable characters are printed this way: \\x, followed by the ASCII code value in uppercase hexadecimal.
+.sp
+.B p
+- Prints an address, given by a pointer variable
+.sp
+.SH BUGS
+_printf does not take care of flags or width and precision specifiers.
+.SH AUTHORS
+Githinji Kingori and Christine Muthoka.
