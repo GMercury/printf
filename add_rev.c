@@ -73,3 +73,4 @@ char *rev_string(char *s)
 
 	return (result);
 }
+
