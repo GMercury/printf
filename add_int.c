@@ -10,7 +10,7 @@
  */
 int add_int(va_list ap, char *buffer, int i)
 {
-	int num = va_arg(ap, int);
+	long int num = va_arg(ap, int);
 	int k, j = 0;
 	char *num_str;
 
