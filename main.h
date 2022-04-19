@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #define SIZE 1024000 /* buffer size */
 
@@ -23,8 +24,10 @@ int _printf(const char *format, ...);
 int (*get_sp_func(char c))(va_list, char *, int);
 int add_char(va_list ap, char *buffer, int i);
 int add_str(va_list ap, char *buffer, int i);
+int add_str_print(va_list ap, char *buffer, int i);
+int copy_to_buff(char *s, char *buffer, int i);
 int add_percent(va_list ap, char *buffer, int i);
-char *int_to_str(unsigned int num, int base);
+char *int_to_str(unsigned long int num, int base);
 int add_int(va_list ap, char *buffer, int i);
 int add_unsigned_int(va_list ap, char *buffer, int i);
 int add_bin(va_list ap, char *buffer, int i);
@@ -36,6 +39,6 @@ char *rev_string(char *s);
 int add_rev(va_list ap, char *buffer, int i);
 char *rot13(char *s);
 int add_rot(va_list ap, char *buffer, int i);
-int add_str_print(va_list ap, char *buffer, int i);
+int add_address(va_list ap, char *buffer, int i);
 
 #endif
