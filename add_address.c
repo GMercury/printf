@@ -15,6 +15,9 @@ int add_address(va_list ap, char *buffer, int i)
 	int j, k = 0;
 	char *num_str;
 
+	if (!num)
+		return (copy_to_buff("(nil)", buffer, i));
+
 	num_str = int_to_str(num, 16);
 	if (!num_str)
 		return (0);

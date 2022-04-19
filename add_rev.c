@@ -15,7 +15,7 @@ int add_rev(va_list ap, char *buffer, int i)
 	int j;
 
 	if (!str)
-		return (0);
+		return (copy_to_buff("(null)", buffer, i));
 
 	/* reverse string */
 	rev = rev_string(str);

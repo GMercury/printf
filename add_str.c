@@ -11,15 +11,11 @@
 int add_str(va_list ap, char *buffer, int i)
 {
 	char *str = va_arg(ap, char *);
-	int j;
 
 	if (!str)
-		str = "(null)";
-
-	for (j = 0; str[j] != '\0'; j++, i++)
-		buffer[i] = str[j];
-
-	return (j);
+		return (copy_to_buff("(null)", buffer, i));
+	else
+		return (copy_to_buff(str, buffer, i));
 }
 
 /**
@@ -38,7 +34,7 @@ int add_str_print(va_list ap, char *buffer, int i)
 	int j, k;
 
 	if (!str)
-		str = "(null)";
+		return (copy_to_buff("(null)", buffer, i));
 
 	for (j = 0, k = 0; str[j] != '\0'; j++, i++)
 	{
@@ -60,4 +56,22 @@ int add_str_print(va_list ap, char *buffer, int i)
 	}
 
 	return (j + k);
+}
+
+/**
+ * copy_to_buff - copies a given string to a given buffer from a given index
+ * @s: string
+ * @buffer: buffer to copy to
+ * @i: index to to start copying to
+ *
+ * Return: number of characters copied
+ */
+int copy_to_buff(char *s, char *buffer, int i)
+{
+	int j;
+
+	for (j = 0; s[j] != '\0'; j++, i++)
+		buffer[i] = s[j];
+
+	return (j);
 }
